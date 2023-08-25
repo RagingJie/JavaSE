@@ -2,7 +2,9 @@ package ExecutionFlow;
 
 /**
  * switch新特性
- *      JDK 12
+ *      JDK 12 及以上才可以使用
+ *      case 1 -> System.out.println("一");
+ *      表达式，版本一下的会报错，无法正常编译运行
  */
 public class OrderDemo03_Switch_Test01 {
     public static void main(String[] args) {
