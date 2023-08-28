@@ -9,7 +9,7 @@ public class StringJoinerDemo02 {
         sj.add("a");
         sj.add("b");
         sj.add("v");
-        sj.add("e");
+        sj.add("d");
         sj.add("dawhjklajw");
 
         int length = sj.length();
