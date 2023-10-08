@@ -95,6 +95,6 @@ public class User {
 
 
     public String toString() {
-        return "User{username = " + username + ", password = " + password + ", phoneNumber = " + phoneNumber + ", identityCard = " + identityCard + "}";
+        return "User{用户名：" + username + ", 密码：" + password + ", 手机号：" + phoneNumber + ", 身份证号：" + identityCard + "}";
     }
 }
