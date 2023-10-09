@@ -3,8 +3,11 @@ package Student_Management_System;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * 低配版的学生管理系统，有时间的话会优化的
+ */
 public class StudentMainMenu {
-    public static void main(String[] args) {
+    public static void main() {
         ArrayList<Student> students = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
@@ -124,7 +127,7 @@ public class StudentMainMenu {
         System.out.println("4:查询学生");
         System.out.println("5:显示所有");
         System.out.println("6:退出系统");
-        System.out.println("请输入您的选组~    (1~5)");
+        System.out.println("请输入您的选项~    (1~5)");
     }
 
     //根据id删除学生信息
