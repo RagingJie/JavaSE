@@ -1,13 +1,15 @@
 package Static.Demo01;
 
 
+import java.io.Serializable;
+
 /**
  * 总结:
  *    静态方法中没有this关键字静态方法中，
  *    只能访问静态。
  *    非静态方法可以访问所有。
  */
-public class Student {
+public class Student implements Serializable {
     private String name;
     private int age;
     static String teacherName;
