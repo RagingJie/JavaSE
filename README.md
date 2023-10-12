@@ -1,11 +1,10 @@
 # JavaSE
 
-- 仓库介绍
+>### 仓库介绍
+>
+#### JavaSE学习笔记
 
-    JavaSE学习笔记
-    
-    IDEA快捷键
-    
+#### IDEA快捷键 
 - Ctrl + Alt + L 规范代码
 
 - Ctrl + D 复制选中代码到下一行
