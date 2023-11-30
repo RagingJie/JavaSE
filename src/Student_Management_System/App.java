@@ -4,8 +4,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
+
+    static ArrayList<User> users = new ArrayList<>();
+
+    //初始化用户
+    static {
+        users.add(new User("zhangsan","123456","15144412354","155415412547845321"));
+    }
+
     public static void main(String[] args) {
-        ArrayList<User> users = new ArrayList<>();
         System.out.println("================欢迎来到学生管理系统================");
         boolean flag = true;
         while (flag) {
