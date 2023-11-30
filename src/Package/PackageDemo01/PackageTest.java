@@ -20,6 +20,6 @@ public class PackageTest {
 
         //用两个相同名字的类名时，要使用全类名
         Teacher teacher = new Teacher();
-        Package.DoMain2.Teacher teacher1 = new Package.DoMain2.Teacher();
+//        Package.DoMain2.Teacher teacher1 = new Package.DoMain2.Teacher();
     }
 }
