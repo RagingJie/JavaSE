@@ -1,0 +1,54 @@
+package InternalClass.Demo02;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/**
+ * @Author
+ * @Date 2024/3/5 11:10
+ * @Description:
+ */
+public class Test {
+    public static void main(String[] args) {
+        /*
+        编写成员内部类的注意点:
+            1.成员内部类可以被一些修饰符所修饰，比如: private，默认，protected，public，static等
+            2.在成员内部类里面，JDK16之前不能定义静态变量，JDK 16开始才可以定义静态变量。
+
+        获取成员内部类对象的两种方式:
+            方式一: 外部类编写方法，对外提供内部类对象 (private)
+            方式二: 直接创建
+            格式: 外部类名.内部类名对象名 = 外部类对象.内部类对象;
+            范例: Outer.Inner oi = new outer().new Inner();
+         */
+
+
+        //创建对象的方式:
+        //类名 对象名 = new 类名()
+        // Student s=newstudent();
+
+
+        //我要创建的是谁的对象?
+        // 内部类的对象
+//        Outer.Inner inner = new Outer().new Inner();
+//        System.out.println(inner.name);
+
+
+        // 创建外部类，通过方法获取
+        Outer outer = new Outer();
+//        System.out.println(outer.getInner());  // 内部类被private修饰时,可直接打印
+//        Outer.Inner inner = outer.getInner();   //内部类被private修饰时，不能用 Outer.Inner 定义类型，可以用Object对象接收（父类多态）
+        Object inner = outer.getInner();
+
+
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        list.add(1);
+        Iterator<Integer> iterator = list.iterator();
+        boolean b = iterator.hasNext();
+        System.out.println(b);
+    }
+}
