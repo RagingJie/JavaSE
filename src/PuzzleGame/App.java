@@ -1,0 +1,22 @@
+package PuzzleGame;
+
+import PuzzleGame.UI.GameJframe;
+import PuzzleGame.UI.LoginJframe;
+import PuzzleGame.UI.RegisterJframe;
+
+/**
+ * @Author
+ * @Date 2024/3/7 0:26
+ * @Description:
+ */
+public class App {
+    public static void main(String[] args) {
+
+        // 创建游戏主界面
+        new GameJframe();
+
+        new LoginJframe();
+
+        new RegisterJframe();
+    }
+}
