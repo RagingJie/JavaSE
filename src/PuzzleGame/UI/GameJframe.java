@@ -12,9 +12,9 @@ public class GameJframe extends JFrame {
 
     public GameJframe() throws HeadlessException {
         // 构造方法用于初始化
-        super("V1.0拼图小游戏");
-        this.setSize(603, 680);
-        this.setVisible(true);
+        super("V1.0拼图小游戏");   // 窗体名字
+        this.setSize(603, 680);  // 设置窗体的高、宽
+        this.setVisible(true);  // 设置窗体是否显示，默认是隐藏的
 
     }
 }
