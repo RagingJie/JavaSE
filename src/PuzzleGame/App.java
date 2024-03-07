@@ -1,6 +1,6 @@
 package PuzzleGame;
 
-import PuzzleGame.UI.GameJframe;
+import PuzzleGame.UI.GameJFrame;
 import PuzzleGame.UI.LoginJframe;
 import PuzzleGame.UI.RegisterJframe;
 
@@ -13,10 +13,12 @@ public class App {
     public static void main(String[] args) {
 
         // 创建游戏主界面
-        new GameJframe();
+        new GameJFrame();
 
-        new LoginJframe();
-
-        new RegisterJframe();
+//        // 创建登录界面
+//        new LoginJframe();
+//
+//        // 创建注册界面
+//        new RegisterJframe();
     }
 }
