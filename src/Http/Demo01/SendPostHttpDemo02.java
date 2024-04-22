@@ -1,11 +1,10 @@
 package Http.Demo01;
 
 import java.io.BufferedReader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.Scanner;
 
 /**
@@ -19,24 +18,31 @@ public class SendPostHttpDemo02 {
     private final static String GET_CODE_URL = "http://127.0.0.1:9123/clientApi/captcha/getCode";
 
     public static void main(String[] args) {
-        menu();
         Scanner scanner = new Scanner(System.in);
-        int index = scanner.nextInt();
-
         while (true) {
+            System.out.println();
+            menu();
+            System.out.print("请输入选项序号：");
+            int index = scanner.nextInt();
             switch (index) {
                 case 1 -> {
                     String code = getCode();
-                    System.out.println("验证码信息" + code);
+                    System.out.println("验证码信息：" + code);
                 }
                 case 2 -> {
-                    login();
+                    String loginInfo = login();
+                    System.out.println("登录返回信息：" + loginInfo);
                 }
                 case 3 -> {
+                }
+                case 4 -> {
                     System.exit(0);
                 }
                 default -> {
-                    System.out.println("输入选项不存在");
+                    System.out.println();
+                    System.out.println("******************************");
+                    System.out.println("输入选项不存在，请重新输入选项序号");
+                    System.out.println("******************************");
                 }
             }
         }
@@ -44,7 +50,46 @@ public class SendPostHttpDemo02 {
     }
 
     public static String sendPost(String url, String param) {
-        return null;
+        String result = "";
+        try {
+            URL realUrl = new URL(url);
+            // 建立连接
+            HttpURLConnection connection = (HttpURLConnection) realUrl.openConnection();
+            // 请求方法
+            connection.setRequestMethod("POST");
+            // 设置请求属性
+            connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+
+            // 允许写出
+            connection.setDoOutput(true);
+            // 允许读入
+            connection.setDoInput(true);
+
+            // 根据连接获取输出流对象，将参数写入到连接中
+            PrintWriter out = new PrintWriter(connection.getOutputStream());
+            // 写入
+            out.print(param);
+            // 刷新
+            out.flush();
+
+            // 定义 BufferedReader 输入流，来读取url的相应
+            InputStreamReader inputStreamReader = new InputStreamReader(connection.getInputStream());
+            BufferedReader in = new BufferedReader(inputStreamReader);
+
+            String line;
+            while ((line = in.readLine()) != null) {
+                result += line;
+            }
+
+            in.close();
+            inputStreamReader.close();
+            out.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
     public static String sendGet(String url, String param) {
@@ -64,9 +109,13 @@ public class SendPostHttpDemo02 {
                 result += line;
             }
 
+            in.close();
+            inputStream.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return result;
     }
 
@@ -78,6 +127,8 @@ public class SendPostHttpDemo02 {
         String password = scanner.next();
         System.out.print("请输入验证码：");
         String captchaCode = scanner.next();
+        System.out.print("请输入uuid：");
+        String uuid = scanner.next();
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("{\"username\":\"");
         stringBuilder.append(username);
@@ -85,7 +136,10 @@ public class SendPostHttpDemo02 {
         stringBuilder.append(password);
         stringBuilder.append("\",\"captchaCode\":\"");
         stringBuilder.append(captchaCode);
+        stringBuilder.append("\",\"uuid\":\"");
+        stringBuilder.append(uuid);
         stringBuilder.append("\"");
+
         stringBuilder.append("}");
         String param = stringBuilder.toString();
         System.out.println(param);
@@ -101,6 +155,7 @@ public class SendPostHttpDemo02 {
         System.out.println("======菜单======");
         System.out.println("1.获取图形验证码");
         System.out.println("2.登录");
-        System.out.println("3.退出");
+        System.out.println("3.显示菜单");
+        System.out.println("4.退出");
     }
 }
