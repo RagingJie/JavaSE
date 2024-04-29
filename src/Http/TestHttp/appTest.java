@@ -81,7 +81,7 @@ public class appTest {
         System.out.print("请输入请求参数：");
         String param = scanner.next();
 
-        return HttpRequest.executeGet(url, param);
+        return HttpRequest.executePost(url, param);
     }
 
 }
