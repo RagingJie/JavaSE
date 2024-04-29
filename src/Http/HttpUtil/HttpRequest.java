@@ -36,14 +36,19 @@ public abstract class HttpRequest {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-            System.out.println("get查询失败！！！");
+//            e.printStackTrace();
+            if (e.getMessage().equals("Network is unreachable: connect")) {
+                System.out.println("get查询失败！，，，404，请求的《URL》地址不存在！！！");
+            } else {
+                System.out.println("get查询失败！！！" + e.getMessage());
+            }
         } finally {  // 关闭连接,释放资源
             try {
                 in.close();
                 inputStreamReader.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("关闭资源失败，" + e.getMessage());
+//                e.printStackTrace();
             }
         }
 
