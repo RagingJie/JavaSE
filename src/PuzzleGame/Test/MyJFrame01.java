@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  * @Author
  * @Date 2024/3/13 9:30
- * @Description:
+ * @Description: 动作监听事件：：  只能监听鼠标《左键》和《空格键》
  */
 public class MyJFrame01 extends JFrame implements ActionListener {
 

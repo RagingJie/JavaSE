@@ -7,7 +7,8 @@ import java.awt.event.MouseListener;
 /**
  * @Author
  * @Date 2024/4/30 11:15
- * @Description:
+ * @Description:  鼠标监听事件（《划入》、《划出》、《按下不送》、《松开》、《单机》）
+ *                注：单机包含：按下不送》和《松开》两部分组成
  */
 public class MyJFrame02 extends JFrame implements MouseListener {
 
