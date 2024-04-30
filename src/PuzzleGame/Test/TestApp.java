@@ -9,6 +9,8 @@ public class TestApp {
     public static void main(String[] args) {
 //        new MyJFrame();
 
-        new MyJFrame01();
+//        new MyJFrame01();
+
+        new MyJFrame02();
     }
 }
