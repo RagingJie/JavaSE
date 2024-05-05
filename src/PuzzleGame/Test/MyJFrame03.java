@@ -4,20 +4,18 @@ import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 /**
  * @Author
  * @Date 2024/4/30 11:31
  * @Description: 键盘监听事件
  */
-public class MyJFrame03 extends JFrame implements KeyListener, MouseListener {
+public class MyJFrame03 extends JFrame implements KeyListener {
 
     JButton button = new JButton("点击我有惊喜哦！！！！");
 
     public MyJFrame03() {
         initWindow();
-//        initButton();
     }
 
     /**
@@ -36,7 +34,7 @@ public class MyJFrame03 extends JFrame implements KeyListener, MouseListener {
 
         this.setLocationRelativeTo(null);
 
-        this.setResizable(false);
+        this.setResizable(false);  // 禁用最大化
 
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,15 +45,6 @@ public class MyJFrame03 extends JFrame implements KeyListener, MouseListener {
 
         this.setVisible(true);
 
-    }
-
-    private void initButton() {
-        button.setVisible(true);
-        button.setBounds(0, 0, 200, 50);
-        button.addMouseListener(this);
-
-
-        this.getContentPane().add(button);
     }
 
     @Override
@@ -71,44 +60,30 @@ public class MyJFrame03 extends JFrame implements KeyListener, MouseListener {
         System.out.println("按下按键不松");
     }
 
+    // 松开按键
     @Override
     public void keyReleased(KeyEvent e) {
         System.out.println("松开按键");
         int keyCode = e.getKeyCode();
         System.out.println("输入的按键编号：" + keyCode);
-        if (keyCode == 65){
+        if (keyCode == 65) {
             System.out.println("按下的键是：A");
-        }else if (keyCode == 66){
+        } else if (keyCode == 66) {
             System.out.println("按下的键是：B");
-        }else if (keyCode == 67){
+        } else if (keyCode == 67) {
             System.out.println("按下的键是：C");
+        } else if (keyCode == 38) {
+            System.out.println("按下的键是：↑");
+        } else if (keyCode == 40) {
+            System.out.println("按下的键是：↓");
+        } else if (keyCode == 39) {
+            System.out.println("按下的键是：→");
+        } else if (keyCode == 37) {
+            System.out.println("按下的键是：←");
+        } else if (keyCode == 27) {
+            System.out.println("按下的键是：Esc");
+            System.out.println("关闭JVM，退出系统!");
+            System.exit(0);
         }
-    }
-
-    //    =================================== 重写监听鼠标监听事件方法
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        System.out.println("点击按钮");
-        new MyJFrame02();
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
     }
 }
