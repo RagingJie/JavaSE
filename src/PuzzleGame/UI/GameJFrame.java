@@ -1,6 +1,7 @@
 package PuzzleGame.UI;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.util.Random;
 
@@ -41,6 +42,14 @@ public class GameJFrame extends JFrame {
      */
     private void initImage() {
 
+        // 路径分为两种：
+        // 绝对路径：一定是从盘符开始的。 C:\  D:\
+        // 相对路径：不是从盘符开始的   aaa\\bbb
+        // 相对路径是对当前项目而言的
+
+        // 细节：
+        // 先加载的图片在上方，后加载的图片塞在下方
+
         // 外循环 --
         for (int j = 0; j < 4; j++) {
             // 内循环 --
@@ -48,14 +57,24 @@ public class GameJFrame extends JFrame {
                 // 当前要加载的图片序号
                 int num = tArr[i][j];
                 // 创建管理ImageIcon的容器
-                JLabel jLabel = new JLabel(new ImageIcon("D:\\WorkSpace\\JavaSE\\image\\girl\\girl2\\" + num + ".jpg"));
+                JLabel jLabel = new JLabel(new ImageIcon("image\\girl\\girl2\\" + num + ".jpg"));  // 相对路径，当前模块下的路径
+//                JLabel jLabel = new JLabel(new ImageIcon("D:\\WorkSpace\\JavaSE\\image\\girl\\girl2\\" + num + ".jpg"));  // 绝对路径
                 // 设置图片的位置与大小
-                jLabel.setBounds(105 * i, 105 * j, 105, 105);
+                jLabel.setBounds(105 * i + 84, 105 * j + 154, 105, 105);
+                // 给图片添加边框
+                // 0：让图片凸起来
+                // 1：让图片凹进去
+                jLabel.setBorder(new BevelBorder(BevelBorder.LOWERED));
                 // 把管理容器添加到界面中
                 this.getContentPane().add(jLabel);
 
             }
         }
+
+        JLabel background = new JLabel(new ImageIcon("image\\background.png")); // 相对路径，当前模块下的路径
+//        JLabel background = new JLabel(new ImageIcon("D:\\WorkSpace\\JavaSE\\image\\background.png")); // 绝对路径
+        background.setBounds(40,60,508,560);
+        this.getContentPane().add(background);
 
         // 首先创建一个图片对象
 //        ImageIcon imageIcon1 = new ImageIcon("D:\\WorkSpace\\JavaSE\\image\\girl\\girl1\\1.jpg");
@@ -182,7 +201,7 @@ public class GameJFrame extends JFrame {
         this.setLayout(null);
 
         // 设置窗体的高、宽
-        this.setSize(503, 580);
+        this.setSize(600, 700);
 
         // 设置界面置顶， 无论什么页面打开，这个界面总是在最上面
         this.setAlwaysOnTop(true);
