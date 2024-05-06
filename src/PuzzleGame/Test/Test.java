@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * @Author
  * @Date 2024/3/12 17:25
- * @Description:
+ * @Description: 二维数组练习
  */
 public class Test {
     public static void main(String[] args) {
