@@ -3,7 +3,6 @@ package PuzzleGame.Test;
 import javax.swing.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
 
 /**
  * @Author
@@ -16,6 +15,9 @@ public class MyJFrame03 extends JFrame implements KeyListener {
 
     public MyJFrame03() {
         initWindow();
+
+        // 输入文本框
+        initTextBox();
     }
 
     /**
@@ -47,9 +49,24 @@ public class MyJFrame03 extends JFrame implements KeyListener {
 
     }
 
+    /**
+     * @return void
+     * @author Naruto
+     * @date 2024/5/6 10:29
+     * @description 初始化文本盒子
+     */
+    private void initTextBox() {
+        JTextField textField = new JTextField();
+        textField.setBounds(0, 0, 300, 30);
+        textField.setVisible(true);
+
+        this.getContentPane().add(textField);
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println();
+        char keyChar = e.getKeyChar();
+        System.out.println("输入的字符是：" + keyChar);
     }
 
     //    ==================== 重写键盘监听事件方法
@@ -63,6 +80,9 @@ public class MyJFrame03 extends JFrame implements KeyListener {
     // 松开按键
     @Override
     public void keyReleased(KeyEvent e) {
+//        char keyChar = e.getKeyChar();
+//        System.out.println("按下的键是：" + keyChar);
+
         System.out.println("松开按键");
         int keyCode = e.getKeyCode();
         System.out.println("输入的按键编号：" + keyCode);
