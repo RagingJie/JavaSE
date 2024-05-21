@@ -25,6 +25,9 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
     // 默认美女地址
     String path = "image\\girl\\girl1";
 
+    // 界面图标
+    String iconImage = "image\\icon.jpg";
+
     // 定义一个胜利数组，判断使用顺利通关
     int[][] winArr = new int[][]{
             {1, 2, 3, 4},
@@ -248,6 +251,12 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
      * @description 初始化窗口
      */
     private void initGameWindows() {
+
+        ImageIcon imageIcon = new ImageIcon(iconImage);
+        Image image = imageIcon.getImage();
+
+        // 界面图标
+        this.setIconImage(image);
 
         // 窗体名字
         this.setTitle("拼图小游戏 V1.0");
