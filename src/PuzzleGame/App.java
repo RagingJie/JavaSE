@@ -1,8 +1,6 @@
 package PuzzleGame;
 
-import PuzzleGame.UI.GameJFrame;
 import PuzzleGame.UI.LoginJframe;
-import PuzzleGame.UI.RegisterJframe;
 
 /**
  * @Author
@@ -12,7 +10,8 @@ import PuzzleGame.UI.RegisterJframe;
 public class App {
     public static void main(String[] args) {
 
-        // 创建游戏主界面
-        new GameJFrame();
+        // 登录界面
+        new LoginJframe();
+
     }
 }
