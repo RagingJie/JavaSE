@@ -1,5 +1,6 @@
 package PuzzleGame;
 
+import PuzzleGame.UI.GameJFrame;
 import PuzzleGame.UI.LoginJframe;
 
 /**
@@ -11,7 +12,9 @@ public class App {
     public static void main(String[] args) {
 
         // 登录界面
-        new LoginJframe();
+//        new LoginJframe();
+
+        new GameJFrame();
 
     }
 }
