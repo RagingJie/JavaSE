@@ -21,8 +21,9 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
     int x = 0;
     int y = 0;
 
-    // 定义全局路径
-    String path = "image\\girl\\girl5\\";
+    // 定义图片全局路径
+    // 默认美女地址
+    String path = "image\\girl\\girl1";
 
     // 定义一个胜利数组，判断使用顺利通关
     int[][] winArr = new int[][]{
@@ -41,6 +42,10 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
     JMenuItem closeItem = new JMenuItem("关闭游戏");
     JMenuItem thanksItem = new JMenuItem("谢辞");
     JMenuItem QQItem = new JMenuItem(" QQ ");
+
+    JMenuItem girlItem = new JMenuItem("美女");
+    JMenuItem animalItem = new JMenuItem("动物");
+    JMenuItem sportItem = new JMenuItem("运动");
 
     public GameJFrame() throws HeadlessException {
         // 构造方法用于初始化
@@ -105,7 +110,7 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
                 // 当前要加载的图片序号
                 int num = tArr[j][i];
                 // 创建管理ImageIcon的容器
-                JLabel jLabel = new JLabel(new ImageIcon(path + num + ".jpg"));  // 相对路径，当前模块下的路径
+                JLabel jLabel = new JLabel(new ImageIcon(path + "\\" + num + ".jpg"));  // 相对路径，当前模块下的路径
 //                JLabel jLabel = new JLabel(new ImageIcon("D:\\WorkSpace\\JavaSE\\image\\girl\\girl2\\" + num + ".jpg"));  // 绝对路径
                 // 设置图片的位置与大小
                 jLabel.setBounds(105 * i + 84, 105 * j + 154, 105, 105);
@@ -193,6 +198,8 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
         JMenu aboutJMenu = new JMenu("关于我们");
         // 特此鸣谢
         JMenu thanksJMenu = new JMenu("特此鸣谢");
+        // 更多图片
+        JMenu moreImageJMenu = new JMenu("更多图片");
 
 
         // 添加动作监听事件
@@ -201,15 +208,26 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
         closeItem.addActionListener(this);
         thanksItem.addActionListener(this);
         QQItem.addActionListener(this);
+        girlItem.addActionListener(this);
+        sportItem.addActionListener(this);
+        animalItem.addActionListener(this);
 
         // 将每个选项下的条目添加到选项当中
 
+        // 更多图片
+        moreImageJMenu.add(girlItem);
+        moreImageJMenu.add(animalItem);
+        moreImageJMenu.add(sportItem);
+        // 功能
+        functionJMenu.add(moreImageJMenu);
         functionJMenu.add(replayItem);
         functionJMenu.add(reLoginItem);
         functionJMenu.add(closeItem);
+        // 特此鸣谢
         thanksJMenu.add(thanksItem);
-
+        // 关于我们
         aboutJMenu.add(QQItem);
+
 
         // 将每个选项添加到 jMenuBar 中
         jMenuBar.add(functionJMenu);
@@ -300,7 +318,7 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 
             this.getContentPane().removeAll();
 
-            JLabel all = new JLabel(new ImageIcon(path + "all.jpg"));
+            JLabel all = new JLabel(new ImageIcon(path + "\\" + "all.jpg"));
             all.setBounds(84, 154, 420, 420);
 
             JLabel background = new JLabel(new ImageIcon("image\\background.png"));
@@ -338,7 +356,7 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
             tArr[x][y] = tArr[x][y + 1];
             tArr[x][y + 1] = 0;
             y++;
-            // 没按下一次，步数+1
+            // 每按下一次，步数+1
             stepCount++;
             initImage();
         }
@@ -460,6 +478,44 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 
         if (source == thanksItem) {
             System.out.println("谢辞");
+        }
+
+        if (source == girlItem) {
+            System.out.println("美女");
+            Random random = new Random();
+            int index = random.nextInt(13) + 1;
+
+            // 美女图片地址
+            path = "image\\girl\\girl" + index;
+
+            // 初始化图片数据
+            initImage();
+        }
+
+        if (source == animalItem) {
+            System.out.println("动物");
+
+            Random random = new Random();
+            int index = random.nextInt(8) + 1;
+
+            // 动物图片地址
+            path = "image\\animal\\animal" + index;
+
+            // 初始化图片数据
+            initImage();
+        }
+
+        if (source == sportItem) {
+            System.out.println("运动");
+
+            Random random = new Random();
+            int index = random.nextInt(10) + 1;
+
+            // 运动图片地址
+            path = "image\\sport\\sport" + index;
+
+            // 初始化图片数据
+            initImage();
         }
     }
 }
