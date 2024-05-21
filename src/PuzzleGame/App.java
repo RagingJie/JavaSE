@@ -14,11 +14,5 @@ public class App {
 
         // 创建游戏主界面
         new GameJFrame();
-
-//        // 创建登录界面
-//        new LoginJframe();
-//
-//        // 创建注册界面
-//        new RegisterJframe();
     }
 }
