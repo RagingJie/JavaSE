@@ -26,7 +26,8 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
     String path = "image\\girl\\girl1";
 
     // 界面图标
-    String iconImage = "image\\icon.jpg";
+    ImageIcon imageIcon = new ImageIcon("image\\icon.jpg");
+    Image iconImage = imageIcon.getImage();
 
     // 定义一个胜利数组，判断使用顺利通关
     int[][] winArr = new int[][]{
@@ -252,11 +253,8 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
      */
     private void initGameWindows() {
 
-        ImageIcon imageIcon = new ImageIcon(iconImage);
-        Image image = imageIcon.getImage();
-
         // 界面图标
-        this.setIconImage(image);
+        this.setIconImage(iconImage);
 
         // 窗体名字
         this.setTitle("拼图小游戏 V1.0");
@@ -468,6 +466,8 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 
             // 创建一个弹窗对象
             JDialog jDialog = new JDialog();
+            // 图标
+            jDialog.setIconImage(iconImage);
             // 标题信息
             jDialog.setTitle("QQ");
             // 将QQ添加到弹窗的画布中
@@ -487,6 +487,26 @@ public class GameJFrame extends JFrame implements KeyListener, ActionListener {
 
         if (source == thanksItem) {
             System.out.println("谢辞");
+            // 创建谢辞对象
+            JDialog thanksDialog = new JDialog();
+            // 设置弹窗图标
+            thanksDialog.setIconImage(iconImage);
+            thanksDialog.setTitle("谢辞");
+            thanksDialog.setSize(250, 80);
+            // 只有关闭了弹窗，才能进行其他操作
+            thanksDialog.setModal(true);
+            // 居中
+            thanksDialog.setLocationRelativeTo(null);
+            // 置顶
+            thanksDialog.setAlwaysOnTop(true);
+
+            JLabel jLabel = new JLabel();
+            jLabel.setText("未曾放弃，何必认输，永觉不累~");
+            jLabel.setBounds(30, 10, 100, 60);
+            jLabel.setVisible(true);
+            thanksDialog.getContentPane().add(jLabel);
+
+            thanksDialog.setVisible(true);
         }
 
         if (source == girlItem) {
