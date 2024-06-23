@@ -1,4 +1,4 @@
-package Stream.First;
+package Stream.FirstDemo;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -57,6 +57,7 @@ public class Demo {
         for (int i = list3.size() - 1; i >= 0; i--) {
             System.out.println(list3.get(i));
         }
+
 
         System.out.println("**********************************");
         System.out.println("第二种方式：stream流");
