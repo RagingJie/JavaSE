@@ -12,8 +12,11 @@ public class Demo03 {
     // 找到电脑中所有以avi结尾的电影 (需要考虑子文件夹)
     // 递归的思想
 
+    static int count = 0;
+
     public static void main(String[] args) {
         haveAVi();
+        System.out.println("本电脑中，可全部访问的【txt文件】共有：" + count + "个！！！");
     }
 
     /**
@@ -45,9 +48,10 @@ public class Demo03 {
             for (File file : files) {
                 // 判断是否是文件，是文件打印以avi文件名称
                 String name = file.getName();
-                if (file.isFile() && name.endsWith(".avi")) {
+                if (file.isFile() && name.endsWith(".txt")) {
                     //文件处理
                     System.out.println(file);
+                    count++;
                 } else {
                     // 文件夹处理
                     haveAVi(file);
