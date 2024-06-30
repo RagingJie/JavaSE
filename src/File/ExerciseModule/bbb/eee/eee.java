@@ -6,4 +6,10 @@ package File.ExerciseModule.bbb.eee;
  * @Description:
  */
 public class eee {
+    public static void main(String[] args) {
+        System.out.println(156611151);
+        System.out.println(156611151);
+        System.out.println(156611151);
+        System.out.println(156611151);
+    }
 }

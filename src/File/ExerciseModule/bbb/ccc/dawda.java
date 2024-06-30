@@ -6,4 +6,7 @@ package File.ExerciseModule.bbb.ccc;
  * @Description:
  */
 public class dawda {
+    public static void main(String[] args) {
+        System.out.println("dawda");
+    }
 }
