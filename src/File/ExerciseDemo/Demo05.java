@@ -50,12 +50,12 @@ public class Demo05 {
                 if (file.isFile()) {
                     // 文件处理
                     String name = file.getName();
-                    int i = name.indexOf(".");
-                    String key = name.substring(i + 1);
-                    if (map.get(key) == null) {
-                        map.put(key, 1);
-                    } else {
+                    String[] split = name.split("\\.");
+                    String key = split[split.length - 1];
+                    if (map.containsKey(key)) {
                         map.put(key, map.get(key) + 1);
+                    } else {
+                        map.put(key, 1);
                     }
 
                 } else {
