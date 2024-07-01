@@ -1,8 +1,6 @@
 package File.ExerciseDemo;
 
 import java.io.File;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 /**
  * @Author
@@ -13,15 +11,12 @@ public class Demo06 {
 
     // 需求：统计一个文件夹的大小
 
-    // 定义变量，统计文件大小
-    static long len = 0L;
-
     public static void main(String[] args) {
 
 
         File file = new File("src\\File\\ExerciseModule");
-        BigDecimal fileSize = getFileSize(file);
-        System.out.println("文件大小为：" + fileSize + "MB");
+        long fileSize = getFileSize(file);
+        System.out.println("文件大小为：" + fileSize + " 字节(B)");
 
     }
 
@@ -30,9 +25,12 @@ public class Demo06 {
      * @return long
      * @author Naruto
      * @date 2024/7/1 9:50
-     * @description 获取文件夹大小（返回大小，MB）
+     * @description 获取文件夹大小（返回大小，B）
      */
-    public static BigDecimal getFileSize(File src) {
+    public static long getFileSize(File src) {
+
+        // 定义变量，统计文件大小
+        long len = 0L;
 
         File[] files = src.listFiles();
         if (files != null && files.length != 0) {
@@ -43,15 +41,11 @@ public class Demo06 {
                     len = len + length;
                 } else {
                     // 是文件夹就继续深入调用
-                    getFileSize(file);
+                    len = len + getFileSize(file);
                 }
             }
         }
 
-        double result = (double) len / 1024 / 1024;
-
-        BigDecimal bigDecimal = BigDecimal.valueOf(result);
-
-        return bigDecimal.setScale(2, RoundingMode.DOWN);
+        return len;
     }
 }
