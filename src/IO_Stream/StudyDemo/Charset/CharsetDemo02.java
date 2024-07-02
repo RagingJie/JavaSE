@@ -24,5 +24,8 @@ public class CharsetDemo02 {
         while ((val = fis.read()) != -1) {
             fos.write(val);
         }
+
+        fos.close();
+        fis.close();
     }
 }

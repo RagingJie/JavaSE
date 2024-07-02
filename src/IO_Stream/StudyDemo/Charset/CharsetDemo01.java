@@ -22,5 +22,7 @@ public class CharsetDemo01 {
         while ((val = fis.read()) != -1) {
             System.out.print((char) val);
         }
+
+        fis.close();
     }
 }
