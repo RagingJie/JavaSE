@@ -1,6 +1,5 @@
 package IO_Stream.StudyDemo.FileCopy;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,14 +13,18 @@ public class FileCopyDemo01 {
 
     public static void main(String[] args) throws IOException {
 
+        // 创建对象
         FileInputStream fis = new FileInputStream("C:\\Users\\Naruto\\Desktop\\1.mp4");
         FileOutputStream fos = new FileOutputStream("src\\IO_Stream\\ExerciseFile\\adv.mp4");
 
+        // 核心思想
+        // 边写边读
         int file;
-        while ((file = fis.read()) != -1){
+        while ((file = fis.read()) != -1) {
             fos.write(file);
         }
 
+        // 释放资源
         fos.close();
         fis.close();
 
