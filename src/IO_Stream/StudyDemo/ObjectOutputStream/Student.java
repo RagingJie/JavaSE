@@ -24,9 +24,9 @@ public class Student implements Serializable {
     private String name;
     private int age;
     private double height;
+
     //  transient：关键字
     //   作用：不会把当前属性序列化到本地文件当中
-
     private transient String address;
 
 
