@@ -1,0 +1,56 @@
+package IO_Stream.StudyDemo.ObjectOutputStream;
+
+import java.io.Serializable;
+
+/**
+ * @Author
+ * @Date 2024/7/9 17:17
+ * @Description: 学生对象
+ */
+
+/*
+        Serializable接口里面是没有抽象方法的，标记型接口
+        一旦实现了这个接口，那么就表示当前的Student类可以被序列化
+
+        理解：
+            一个物品的合格证
+ */
+public class Student implements Serializable {
+
+    private String name;
+    private int age;
+    private double height;
+
+    public Student(String name, int age, double height) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+    }
+
+    public Student() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+}
