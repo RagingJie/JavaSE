@@ -25,7 +25,7 @@ public class ObjectOutputStreamDemo {
     public static void main(String[] args) throws IOException {
 
         // 创建学生对象
-        Student naruto = new Student("Naruto", 18, 180.3);
+        Student naruto = new Student("Naruto", 18, 180.3, "深圳");
 
         // 创建序列化流
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("src\\IO_Stream\\ExerciseFile\\objectWrite.txt"));
