@@ -161,3 +161,6 @@
 - 字符缓冲流两个特有的方法是什么？
   - 字符缓冲输入流(BufferedReader)：readLine()
   - 字符缓冲输出流(BufferedWriter)：newLine()
+  
+## 转换流
+- 是字符流和字节流之间的桥梁
