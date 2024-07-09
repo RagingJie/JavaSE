@@ -17,22 +17,32 @@ import java.io.Serializable;
  */
 public class Student implements Serializable {
 
+    // serialVersionUID：可理解为序列号 / 版本号
+    // 作用：防止序列化与反序列化时，中间对象的属性可能发生变化而导致抛异常
+    private static final long serialVersionUID = 4617296927553028263L;
+
     private String name;
     private int age;
     private double height;
+    //  transient：关键字
+    //   作用：不会把当前属性序列化到本地文件当中
+
+    private transient String address;
 
 
     public Student() {
     }
 
-    public Student(String name, int age, double height) {
+    public Student(String name, int age, double height, String address) {
         this.name = name;
         this.age = age;
         this.height = height;
+        this.address = address;
     }
 
     /**
      * 获取
+     *
      * @return name
      */
     public String getName() {
@@ -41,6 +51,7 @@ public class Student implements Serializable {
 
     /**
      * 设置
+     *
      * @param name
      */
     public void setName(String name) {
@@ -49,6 +60,7 @@ public class Student implements Serializable {
 
     /**
      * 获取
+     *
      * @return age
      */
     public int getAge() {
@@ -57,6 +69,7 @@ public class Student implements Serializable {
 
     /**
      * 设置
+     *
      * @param age
      */
     public void setAge(int age) {
@@ -65,6 +78,7 @@ public class Student implements Serializable {
 
     /**
      * 获取
+     *
      * @return height
      */
     public double getHeight() {
@@ -73,13 +87,32 @@ public class Student implements Serializable {
 
     /**
      * 设置
+     *
      * @param height
      */
     public void setHeight(double height) {
         this.height = height;
     }
 
+    /**
+     * 获取
+     *
+     * @return address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * 设置
+     *
+     * @param address
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String toString() {
-        return "Student{name = " + name + ", age = " + age + ", height = " + height + "}";
+        return "name = " + name + ", age = " + age + ", height = " + height + ", address = " + address + "}";
     }
 }
