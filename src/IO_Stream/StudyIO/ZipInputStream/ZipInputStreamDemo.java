@@ -70,7 +70,5 @@ public class ZipInputStreamDemo {
         }
 
         zip.close();
-
-
     }
 }
