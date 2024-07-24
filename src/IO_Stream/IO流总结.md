@@ -241,3 +241,6 @@
 | public void println(Xxx xx)                       | 特有方法：打印任意数据，自动刷新，自动换行 |
 | public void print(Xxx xx)                         | 特有方法：打印任意数据，不换行             |
 | public void printf(String format, Object... args) | 特有方法：带有占位符的打印语句，不换行     |
+> 压缩流
+- 压缩文件中的每一个文件都是一个ZipEntry对象
+- Java中的压缩文件格式只支持.zip
