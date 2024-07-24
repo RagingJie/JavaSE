@@ -31,7 +31,7 @@ public class ZipOutputStreamDemo01 {
      * @return void
      * @author Naruto
      * @date 2024/7/23 17:21
-     * @description 解压文件
+     * @description 压缩文件
      */
     private static void compressedFiles(File dataSource, File destination) throws IOException {
         // 压缩输出流
