@@ -1,8 +1,6 @@
 package IO_Stream.ReviewExercises;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,36 +23,98 @@ public class Exercises18 {
             细节2：第11次运行的时候，我们自己不需要手动操作本地文件，要求程序自动开始第二轮点名
      */
 
-    private final static String dataSource = "src\\IO_Stream\\ExerciseFile\\姓名.txt";
+    private final static String dataSourceName = "src\\IO_Stream\\ExerciseFile\\姓名.txt";
+    private final static String dataSourceRunCount = "src\\IO_Stream\\ExerciseFile\\程序运行次数.txt";
+    private final static String dataSourceTempName = "src\\IO_Stream\\ExerciseFile\\姓名临时文件.txt";
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         long start = System.currentTimeMillis();
 
         // 获取数据输入流
-        BufferedReader br = new BufferedReader(new FileReader(dataSource, Charset.forName("UTF-8")));
+        BufferedReader brName = new BufferedReader(new FileReader(dataSourceName, Charset.forName("UTF-8")));
+        BufferedReader brRunCount = new BufferedReader(new FileReader(dataSourceRunCount, Charset.forName("UTF-8")));
 
-        int count = 0;
-        // 存储姓名的集合
-        ArrayList<String> nameList = new ArrayList<>();
-
-        String line;
-        while ((line = br.readLine()) != null) {
-            nameList.add(line);
-            count++;
+        // 运行次数
+        int runCount = 0;
+        String line1;
+        while ((line1 = brRunCount.readLine()) != null) {
+            runCount = Integer.parseInt(line1) + 1;
         }
+
+        brRunCount.close();
+
+        BufferedWriter wrRunCount = new BufferedWriter(new FileWriter(dataSourceRunCount, Charset.forName("UTF-8")));
+        wrRunCount.write(String.valueOf(runCount));
+        wrRunCount.close();
+
+        // 程序第一次运行时，将名字放入临时表
+        if (runCount == 1) {
+            ArrayList<String> nameList = new ArrayList<>();
+            String line2;
+            while ((line2 = brName.readLine()) != null) {
+                nameList.add(line2);
+            }
+
+            // 打乱集合
+            Collections.shuffle(nameList);
+
+            System.out.println("点名集合长度：" + nameList.size());
+
+            System.out.println(nameList.get(0) + "被点到！");
+
+            nameList.remove(0);
+
+            ObjectOutputStream oosTempName = new ObjectOutputStream(new FileOutputStream(dataSourceTempName));
+            oosTempName.writeObject(nameList);
+            oosTempName.close();
+
+        } else if (runCount == 11) {
+            // 运行次数重置为1
+            BufferedWriter wrTempRunCount = new BufferedWriter(new FileWriter(dataSourceRunCount, Charset.forName("UTF-8")));
+            wrTempRunCount.write("1");
+            wrTempRunCount.close();
+
+
+            ArrayList<String> nameList = new ArrayList<>();
+            String line2;
+            while ((line2 = brName.readLine()) != null) {
+                nameList.add(line2);
+            }
+
+            // 打乱集合
+            Collections.shuffle(nameList);
+            System.out.println("点名集合长度：" + nameList.size());
+
+            System.out.println(nameList.get(0) + "被点到！");
+
+            nameList.remove(0);
+
+            ObjectOutputStream oosTempName = new ObjectOutputStream(new FileOutputStream(dataSourceTempName));
+            oosTempName.writeObject(nameList);
+            oosTempName.close();
+
+        } else {
+            ObjectInputStream oisTempName = new ObjectInputStream(new FileInputStream(dataSourceTempName));
+            ArrayList<String> nameList = (ArrayList<String>) oisTempName.readObject();
+            // 打乱集合
+            Collections.shuffle(nameList);
+            System.out.println("点名集合长度：" + nameList.size());
+            System.out.println(nameList.get(0) + "被点到！");
+            nameList.remove(0);
+            oisTempName.close();
+
+            ObjectOutputStream oosTempName = new ObjectOutputStream(new FileOutputStream(dataSourceTempName));
+            oosTempName.writeObject(nameList);
+            oosTempName.close();
+
+        }
+
 
         // 及时释放资源
-        br.close();
-
-        for (String s : nameList) {
-            System.out.println(s);
-        }
-
-
+        brName.close();
 
         long end = System.currentTimeMillis();
-        System.out.println("运行时间：" + ((end - start) / 1000.0) + "s");
-        System.out.println("数据个数：" + count + "条");
+        System.out.println("\n运行时间：" + ((end - start) / 1000.0) + "s");
     }
 
 
