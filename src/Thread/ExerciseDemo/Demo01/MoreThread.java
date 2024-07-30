@@ -1,4 +1,4 @@
-package Thread.Demo01;
+package Thread.ExerciseDemo.Demo01;
 
 /**
  * @Author
