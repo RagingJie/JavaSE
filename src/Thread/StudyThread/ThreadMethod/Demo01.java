@@ -30,7 +30,23 @@ public class Demo01 {
                 1秒 = 1000毫秒
             3、当时间到了之后，线程会自动的醒来，继续执行下面的其他代码
     */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
+//        MyThread t1 = new MyThread();
+//        MyThread t2 = new MyThread();
+//
+//        t1.setName("线程1");
+//        t2.setName("线程2");
+//
+//        t1.start();
+//        t2.start();
+
+
+//        Thread thread = Thread.currentThread();
+//        System.out.println(thread.getName());
+
+        System.out.println("11111111");
+        Thread.sleep(5000);
+        System.out.println("22222222");
     }
 }
