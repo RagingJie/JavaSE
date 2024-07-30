@@ -1,4 +1,4 @@
-package Thread.StudyThread.ThreadMethod;
+package Thread.StudyThread.ThreadMethod.Demo01;
 
 /**
  * @Author
