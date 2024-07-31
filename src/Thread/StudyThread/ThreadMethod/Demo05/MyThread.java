@@ -1,6 +1,5 @@
 package Thread.StudyThread.ThreadMethod.Demo05;
 
-import javax.swing.plaf.TableHeaderUI;
 
 /**
  * @Author
