@@ -34,7 +34,7 @@ public class Foodie extends Thread {
                         // 把吃的总数-1
                         Desk.count--;
                         // 如果有，就开吃
-                        System.out.println("吃货在吃面条，还能再吃" + Desk.count + "碗！！！");
+                        System.out.println(getName() + "在吃面条，还能再吃" + Desk.count + "碗！！！");
                         // 吃完后，唤醒厨师继续做
                         Desk.lock.notifyAll();
                         // 修改桌子的状态

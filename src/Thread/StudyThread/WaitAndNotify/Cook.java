@@ -32,7 +32,7 @@ public class Cook extends Thread {
                         }
                     } else {
                         // 如果没有，就制作食物
-                        System.out.println("厨师做了一碗面条！！！");
+                        System.out.println(getName() + "做了一碗面条！！！");
                         // 修改桌子上的食物状态
                         Desk.foodFlag = 1;
                         // 叫醒等待的消费者开吃
