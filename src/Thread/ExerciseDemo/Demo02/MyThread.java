@@ -27,7 +27,7 @@ public class MyThread extends Thread {
                         String time = dateFormat.format(currentTime);
                         sleep(3000);
                         ticketCount++;
-                        System.out.println(time + "  " + getName() + "卖出了第" + ticketCount + "张票！");
+                        System.out.println(time + "  " + getName() + "卖出了第" + ticketCount + "张票，还剩" + (1000 - ticketCount) + "张");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
