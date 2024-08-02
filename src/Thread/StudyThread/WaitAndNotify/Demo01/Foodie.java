@@ -1,4 +1,4 @@
-package Thread.StudyThread.WaitAndNotify;
+package Thread.StudyThread.WaitAndNotify.Demo01;
 
 /**
  * @Author
