@@ -42,5 +42,8 @@ public class App {
         System.out.println(sum5);
         System.out.println(sum6);
         System.out.println(sum7);
+
+        // 关闭线程池，一般情况下不会关闭线程池，线程池会随着整个程序的生命周期而结束
+        pool.shutdown();
     }
 }
