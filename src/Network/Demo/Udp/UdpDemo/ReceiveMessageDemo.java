@@ -1,4 +1,4 @@
-package Network.Demo.UdpDemo;
+package Network.Demo.Udp.UdpDemo;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
