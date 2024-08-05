@@ -20,7 +20,7 @@ public class ClientSendMessage {
 
         // 2.获取输出流，写数据
         OutputStream os = socket.getOutputStream();
-        os.write(97);
+        os.write("我是帅锅！！！".getBytes());
 
         // 释放资源
         os.close();
