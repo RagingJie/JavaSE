@@ -10,7 +10,7 @@ import java.net.Socket;
 /**
  * @Author
  * @Date 2024/8/12 15:37
- * @Description:
+ * @Description: 接收数据并打印，再给客户反馈信息
  */
 public class ServerReceiveMessage {
     /*

@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * @Author
  * @Date 2024/8/12 15:37
- * @Description:
+ * @Description: 发送一条数据，接收服务端反馈的信息并打印
  */
 public class ClientSendMessage {
     /*
