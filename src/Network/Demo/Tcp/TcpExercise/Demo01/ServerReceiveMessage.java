@@ -7,7 +7,7 @@ import java.net.Socket;
 /**
  * @Author
  * @Date 2024/8/12 15:37
- * @Description:
+ * @Description: 接收多次数据，并打印
  */
 public class ServerReceiveMessage {
     /*

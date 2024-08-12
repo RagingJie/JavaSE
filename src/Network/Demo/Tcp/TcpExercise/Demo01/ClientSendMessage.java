@@ -8,7 +8,7 @@ import java.util.Scanner;
 /**
  * @Author
  * @Date 2024/8/12 15:37
- * @Description:
+ * @Description: 多次发送数据
  */
 public class ClientSendMessage {
     /*
