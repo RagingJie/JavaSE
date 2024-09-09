@@ -63,7 +63,7 @@ public class GrilFriend {
 
     @Override
     public String toString() {
-        return "GrilFriend{" +
+        return "GirlFriend{" +
                 "name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", age=" + age +
