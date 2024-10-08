@@ -1,13 +1,13 @@
-package Utils;
+package Utils.DateUtil;
 
 import java.text.SimpleDateFormat;
 
 /**
  * @Author Naruto
  * @Date 2024/6/20 9:59
- * @Description:
+ * @Description: 时间工具类
  */
-public abstract class CommonUtil {
+public abstract class DateUtil {
 
     /**
      * @param time 时间戳（毫秒值）
